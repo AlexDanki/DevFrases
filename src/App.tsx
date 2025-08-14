@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import logoImg from './assets/logo.png'
 import './App.css'
@@ -7,6 +7,16 @@ function App() {
 
   const [categoriaAtiva, setCategoriaAtiva] = useState(0)
   const [frase, setFrase] = useState("");
+  const [prevFrase, setPrevFrase] = useState("");
+
+  let comecou = false;
+
+useEffect(()=>{
+  if(!comecou){
+    setPrevFrase(frase)
+    comecou = true
+  }
+},[])
 
   const categorias = [
     {
@@ -39,7 +49,19 @@ function App() {
   function handleGenerateFrase(){
     const randomIndex = Math.floor(Math.random() * categorias[categoriaAtiva].frases?.length)
 
+    console.log(categorias[categoriaAtiva].frases[randomIndex])
+    console.log(prevFrase)
+    if(categorias[categoriaAtiva].frases[randomIndex] == prevFrase){
+      const newRandomIndex = Math.floor(Math.random() * categorias[categoriaAtiva].frases?.length)
+      setFrase(categorias[categoriaAtiva].frases[newRandomIndex])
+      setPrevFrase(categorias[categoriaAtiva].frases[newRandomIndex])
+      console.log("Repetiu-se")
+      return
+    }
+
     setFrase(categorias[categoriaAtiva].frases[randomIndex])
+    setPrevFrase(categorias[categoriaAtiva].frases[randomIndex])
+    console.log("Não repetiu")
 
   }
 
