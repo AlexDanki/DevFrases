@@ -12,7 +12,7 @@ function App() {
     {
       id: 0,
       categoria: "Bom dia",
-      frase: [
+      frases: [
         "Que seu dia seja cheio de alegrias e realizações",
         "Que a felicidade te acompanhe em cada momento",
         "Desejo a você um dia produtivo e cheio de boas energias",
@@ -28,11 +28,19 @@ function App() {
         "Uma montanha de memórias nunca é igual a uma pequena esperança",
         "Quando você chegar ao fim de sua corda, dê um nó e segure-se" 
       ]
-    }
+    },
   ]
 
   function handleSwapCategory(index: number){
+    console.log(index)
     setCategoriaAtiva(index)
+  }
+
+  function handleGenerateFrase(){
+    const randomIndex = Math.floor(Math.random() * categorias[categoriaAtiva].frases?.length)
+
+    setFrase(categorias[categoriaAtiva].frases[randomIndex])
+
   }
 
   return (
@@ -48,14 +56,16 @@ function App() {
             <button 
             style={{backgroundColor: categoriaAtiva == index ? "#4a1ef9" : "#fff", color: categoriaAtiva == index ? "#fff" : "#4a1ef9"}}
             key={index}
-            onClick={()=> handleSwapCategory(index)}
+            onClick={()=> handleSwapCategory(item.id)}
             className='btn_categoria'>{item.categoria}</button>
 
           ))
         }
       </section>
 
-      <button className="btn_gerar">Gerar</button>
+      <button 
+      onClick={()=> handleGenerateFrase()} 
+      className="btn_gerar">Gerar</button>
 
       { frase && (<p className="frase-gerada">{`"${frase}"`}</p>) }
 
