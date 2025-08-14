@@ -1,34 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import logoImg from './assets/logo.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="container">
+      <img className="logo" src={logoImg} alt="logo image" />
+
+      <h2 className="title">Gerador</h2>
+
+      <section className='buttons-categoria'>
+        <button className='btn_categoria'>Bom dia</button>
+        <button className='btn_categoria'>Boa noite</button>
+        <button className='btn_categoria'>Esperança</button>
+        <button className='btn_categoria'>Engraçada</button>
+      </section>
+
+      <button className="btn_gerar">Gerar</button>
+
+      <p className="frase-gerada">"Esse aqui é um exeplo de texto gerado pela a aplicação"</p>
+
+    </div>
   )
 }
 
