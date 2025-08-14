@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
 
+  const [categoriaAtiva, setCategoriaAtiva] = useState(0)
   const [frase, setFrase] = useState("");
 
   const categorias = [
@@ -30,6 +31,10 @@ function App() {
     }
   ]
 
+  function handleSwapCategory(index: number){
+    setCategoriaAtiva(index)
+  }
+
   return (
     <div className="container">
       <img className="logo" src={logoImg} alt="logo image" />
@@ -40,7 +45,11 @@ function App() {
         {
           categorias.map((item, index)=>(
 
-            <button className='btn_categoria'>{item.categoria}</button>
+            <button 
+            style={{backgroundColor: categoriaAtiva == index ? "#4a1ef9" : "#fff", color: categoriaAtiva == index ? "#fff" : "#4a1ef9"}}
+            key={index}
+            onClick={()=> handleSwapCategory(index)}
+            className='btn_categoria'>{item.categoria}</button>
 
           ))
         }
