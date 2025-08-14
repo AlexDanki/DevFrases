@@ -52,7 +52,9 @@ useEffect(()=>{
     console.log(categorias[categoriaAtiva].frases[randomIndex])
     console.log(prevFrase)
     if(categorias[categoriaAtiva].frases[randomIndex] == prevFrase){
-      const newRandomIndex = Math.floor(Math.random() * categorias[categoriaAtiva].frases?.length)
+      let newRandomIndex = randomIndex - 1
+      if(newRandomIndex < 0)
+        newRandomIndex = 1
       setFrase(categorias[categoriaAtiva].frases[newRandomIndex])
       setPrevFrase(categorias[categoriaAtiva].frases[newRandomIndex])
       console.log("Repetiu-se")
