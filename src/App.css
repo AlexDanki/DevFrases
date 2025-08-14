@@ -1,42 +1,50 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.container{
+  width:100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.logo{
+  width: 350px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title{
+  color:#fcfcfc;
+  margin-bottom: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.buttons-categoria{
+  display: flex;
+  gap:14px;
 }
 
-.card {
-  padding: 2em;
+.btn_categoria{
+  color: #4a1ef9;
+  background-color: #fff;
+  padding:4px;
+  cursor: pointer;
+  border:1px solid #4a1ef9;
 }
 
-.read-the-docs {
-  color: #888;
+.btn_gerar{
+  color:#fff;
+  background-color: #4a1ef9;
+  font-size: 16px;
+  border-radius: 4px;
+  padding:8px 22px;
+  border: none;
+  margin:24px 0 35px 0;
+  cursor:pointer;
+}
+
+.frase-gerada{
+  color:#4a1ef9;
+  padding:8px 16px;
+  border: 2px solid #4a1ef9;
+  border-radius:4px;
+  font-style: italic;
 }
